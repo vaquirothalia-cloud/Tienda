@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "7445dda8-a317-46c2-b782-5a48189d9844",
+		"name": "Tienda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48655088",
+		"_collection_link": "https://vaquirothalia-7168801.postman.co/workspace/Thalia-Vaquiro's-Workspace~97f16729-c5e4-4495-8bfe-510941ddc751/collection/48655088-7445dda8-a317-46c2-b782-5a48189d9844?action=share&source=collection_link&creator=48655088"
+	},
+	"item": [
+		{
+			"name": "Crear cliente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Thalia\",\r\n  \"email\": \"thalia1@gmail.com\",\r\n  \"direccion\": {\r\n    \"calle\": \"Calle 45\",\r\n    \"ciudad\": \"Neiva\",\r\n    \"pais\": \"Colombia\",\r\n    \"zip\": \"410001\"\r\n  }\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8081/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear productos y categorías",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear pedido con 2 ítems",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"items\": [\r\n    { \"producto\": { \"id\": 1 }, \"cantidad\": 2 },\r\n    { \"producto\": { \"id\": 2 }, \"cantidad\": 1 }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/clientes/1/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes",
+						"1",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mismo Producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"items\": [\r\n    { \"producto\": { \"id\": 1 }, \"cantidad\": 2 },\r\n    { \"producto\": { \"id\": 1 }, \"cantidad\": 1 }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/clientes/1/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes",
+						"1",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cambiar estado",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"estado\": \"ENTREGADO\" }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/pedidos/1/estado?valor=ENTREGADO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pedidos",
+						"1",
+						"estado"
+					],
+					"query": [
+						{
+							"key": "valor",
+							"value": "ENTREGADO"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
