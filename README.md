@@ -1,6 +1,6 @@
-# Tienda Online - Final (Thalia)
+# Tienda Online 
 
-Proyecto configurado para MySQL `tienda_online` con usuario root y la contraseña proporcionada.
+Proyecto configurado para MySQL.
 
 ## Cómo ejecutar
 1. Asegúrate MySQL esté corriendo y exista la base `tienda_online`.
